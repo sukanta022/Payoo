@@ -8,7 +8,7 @@ document.getElementById("LogIn").addEventListener("click", function(e){
     inputDigit = parseInt(document.getElementById("4-digit").value);
     
     if(defaultPhoneNumber === inputMobileNumber && defaultDigit === inputDigit){
-        window.location.href = "/HomePage1.html";
+        window.location.href = "./html/HomePage1.html";
     }
     else{
         alert("Invalid login credential");
