@@ -37,33 +37,35 @@
         </div>
 
         <div class="w-full grid grid-cols-3 gap-5 mt-5 px-6">
-            <div class="rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100" id="add-money">
+            <div class="form-btn rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100" id="add-money">
                 <img src="../assets/wallet1.png" alt="" class="w-7 h-7">
                 <p class="text-sm text-center">Add Money</p>
             </div>
-            <div class="rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100" id="cash-out">
+            <div class="form-btn rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100" id="cash-out">
                 <img src="../assets/send1.png" alt="" class="w-7 h-7">
                 <p class="text-sm text-center">Cashout</p>
             </div>
-            <div class="rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100">
+            <div class="form-btn rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100" id="send-money">
                 <img src="../assets/money1.png" alt="" class="w-7 h-7">
                 <p class="text-sm text-center leading-tight">Transfer<br>Money</p>
             </div>
-            <div class="rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100">
+            <div class="form-btn rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100" id="bonus">
                 <img src="../assets/bonus1.png" alt="" class="w-7 h-7">
                 <p class="text-sm text-center">Get Bonus</p>
             </div>
-            <div class="rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100">
+            <div class="form-btn rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100" id="pay-bill">
                 <img src="../assets/purse1.png" alt="" class="w-7 h-7">
                 <p class="text-sm text-center">Pay Bill</p>
             </div>
-            <div class="rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100">
+            <div class="form-btn rounded border border-gray-300 h-[80px] flex flex-col justify-center items-center gap-1 bg-slate-100" id="transection">
                 <img src="../assets/transaction1.png" alt="" class="w-7 h-7">
                 <p class="text-sm text-center">Transaction</p>
             </div>
         </div>
 
-        <div id="add-money-parent" class="h-auto bg-[#f4f5f7] mt-5 px-6">
+
+    
+        <div id="add-money-parent" class="form h-auto bg-[#f4f5f7] mt-5 px-6">
             <p class="font-semibold text-[18px] pt-5 pb-3">Add Money</p>
 
             <form class="h-auto bg-white rounded-3xl p-5 space-y-2 shadow">
@@ -108,7 +110,7 @@
             </form>
         </div>
 
-        <div id="cash-out-parent" class="h-124 bg-[#f4f5f7] mt-5 px-6 hidden">
+        <div id="cash-out-parent" class="form h-124 bg-[#f4f5f7] mt-5 px-6 hidden">
             <p class="font-semibold text-[18px] pt-5 pb-5">Cashout</p>
 
             <form class="h-auto bg-white rounded-3xl p-5 space-y-2 shadow">
@@ -143,7 +145,101 @@
             </form>
         </div>
 
+         <div id="send-parent" class="form h-124 bg-[#f4f5f7] mt-5 px-6 hidden">
+            <p class="font-semibold text-[18px] pt-5 pb-5">Transfer Money</p>
 
+            <form class="h-auto bg-white rounded-3xl p-5 space-y-2 shadow">
+    
+                <div class="flex flex-col">
+                    <label class="font-semibold mb-3">User Account Number</label>
+                    <input id="user-number" type="text" placeholder="Enter 11 digit account number" class="input bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3
+                    border-1 border-gray-300">
+                </div>
+
+    
+                <div class="flex flex-col mt-3">
+                    <label class="font-semibold mb-3">Amount</label>
+                    <input id="send-amount" type="text" placeholder="Enter amount to withdraw" 
+                        class="input bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3
+                        border-1 border-gray-300">
+                </div>
+
+    
+                <div class="flex flex-col mt-3">
+                    <label class="font-semibold mb-3">Pin number</label>
+                    <input id="send-pin" type="text" placeholder="Enter 4 digit pin number" 
+                        class="input bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3
+                        border-1 border-gray-300">
+                </div>
+
+    
+                <div class="mt-5">
+                    <button id="send-btn" class="btn bg-[#0874F2] font-semibold w-full h-9 rounded-2xl text-white text-[18px]">Send now</button>
+                </div>
+            </form>
+        </div>
+
+         <div id="bonus-parent" class="form h-124 bg-[#f4f5f7] mt-5 px-6 hidden">
+            <p class="font-semibold text-[18px] pt-8 pb-5">Get Bonus</p>
+
+            <form class="h-auto bg-white rounded-3xl p-5 space-y-2 shadow">
+    
+                <div class="flex flex-col">
+                    <label class="font-semibold mb-3">Enter Bonus Coupon</label>
+                    <input id="user-number" type="text" placeholder="Enter your coupon" class="input bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3
+                    border-1 border-gray-300">
+                </div>
+    
+                <div class="mt-5">
+                    <button id="send-btn" class="btn bg-[#0874F2] font-semibold w-full h-9 rounded-2xl text-white text-[18px]">Get Bonus</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="pay-bill-parent" class="form h-auto bg-[#f4f5f7] mt-5 px-6 hidden">
+            <p class="font-semibold text-[18px] pt-5 pb-3">Add Money</p>
+
+            <form class="h-auto bg-white rounded-3xl p-5 space-y-2 shadow">
+                <div class="flex flex-col">
+                    <label class="font-semibold mb-1">Select To Pay</label>
+                    <select class="select bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3 border-1 border-gray-300" id="bank-input">
+                        <option disabled selected>Select Back</option>
+                        <option>Electric Bill</option>
+                        <option>Gas Bill</option>
+                        <option>Water Bill</option>
+                    </select>
+                </div>
+
+    
+                <div class="flex flex-col">
+                    <label class="font-semibold mb-2">Biller Account Number</label>
+                    <input id="account-num" type="text" placeholder="Enter 11 digit account number" 
+                        class="input bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3
+                        border-1 border-gray-300">
+                </div>
+
+   
+                <div class="flex flex-col">
+                    <label class="font-semibold mb-2">Amount to Pay</label>
+                    <input id="input-amount" type="text" placeholder="Add amount to pay" 
+                        class="input bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3
+                        border-1 border-gray-300">
+                </div>
+
+    
+                <div class="flex flex-col">
+                    <label class="font-semibold mb-2">PIN Number</label>
+                    <input id="pin" type="text" placeholder="Enter 4 digit pin number" 
+                        class="input bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3
+                        border-1 border-gray-300">
+                </div>
+
+    
+                <div class="mt-3">
+                    <button id="pay-bill-btn" class="btn bg-[#0874F2] font-semibold w-full h-9 rounded-2xl text-white text-[18px]">Add Money</button>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="../script/addMoney.js"></script>
 

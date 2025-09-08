@@ -22,6 +22,27 @@ function setInputValue(id, text){
     document.getElementById(id).value = text;
 }
 
+function handleToggle(id){
+    const forms = document.getElementsByClassName("form");
+
+    for(const form of forms){
+        form.style.display = "none";
+    }
+
+    document.getElementById(id).style.display = "block";
+}
+
+function handleToggleButton(id){
+    const formBtns = document.getElementsByClassName("form-btn");
+
+    for(const btn of formBtns){
+        btn.classList.remove("border-[#0874f2]", "bg-[#0874f20d]");
+        btn.classList.add("border-gray-300");
+    }
+
+    document.getElementById(id).classList.remove("border-gray-300");
+    document.getElementById(id).classList.add("border-[#0874f2]", "bg-[#0874f20d]");
+}
 
 document.getElementById("add-money-btn").addEventListener("click", function(e){
     e.preventDefault();
@@ -92,11 +113,26 @@ document.getElementById("withdraw-btn").addEventListener("click", function(e){
 
 //toggle features
 document.getElementById("add-money").addEventListener("click", function(){
-    document.getElementById("cash-out-parent").style.display = "none";
-    document.getElementById("add-money-parent").style.display = "block";
+    handleToggle("add-money-parent");
+    handleToggleButton("add-money");
 });
 
 document.getElementById("cash-out").addEventListener("click", function(){
-    document.getElementById("add-money-parent").style.display = "none";
-    document.getElementById("cash-out-parent").style.display = "block";
+    handleToggle("cash-out-parent");
+    handleToggleButton("cash-out");
 });
+
+document.getElementById("send-money").addEventListener("click", function(){
+    handleToggle("send-parent");
+    handleToggleButton("send-money");
+});
+
+document.getElementById("bonus").addEventListener("click", function(){
+    handleToggle("bonus-parent");
+    handleToggleButton("bonus");
+});
+
+document.getElementById("pay-bill").addEventListener("click", function(){
+    handleToggle("pay-bill-parent");
+    handleToggleButton("pay-bill");
+})
