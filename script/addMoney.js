@@ -106,8 +106,35 @@ document.getElementById("withdraw-btn").addEventListener("click", function(e){
         setInputValue("agent-number", "");
         setInputValue("w-pin","");
     }
+});
 
-    
+//transfer money
+document.getElementById("send-btn").addEventListener("click", function(e){
+    e.preventDefault();
+    transferAccount = getIntValue("send-number");
+    transferAmount = getNumberValue("transfer-amount");
+    tPin = getIntValue("send-pin");
+
+    if(transferAccount.toString().length===11 && tPin === 1234){
+        availableBalance = getInnerTextValue("total-amount");
+        if(availableBalance>=transferAmount){
+            availableBalance = availableBalance - transferAmount;
+            setValue("total-amount", availableBalance);
+            alert("Transfer Complete");
+            setInputValue("send-number","");
+            setInputValue("transfer-amount","");
+            setInputValue("send-pin", "");
+        }
+        else{
+            alert("insufficient balance");
+            setInputValue("transfer-amount","");
+        }
+    }
+    else{
+        alert("invalid credential");
+        setInputValue("send-number", "");
+        setInputValue("send-pin","");
+    }
 
 });
 
@@ -136,3 +163,9 @@ document.getElementById("pay-bill").addEventListener("click", function(){
     handleToggle("pay-bill-parent");
     handleToggleButton("pay-bill");
 })
+
+document.getElementById("transection").addEventListener("click", function(){
+    handleToggle("transection-parent");
+    handleToggleButton("transection");
+})
+
