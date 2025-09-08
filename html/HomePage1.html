@@ -201,7 +201,7 @@
             <form class="h-auto bg-white rounded-3xl p-5 space-y-2 shadow">
                 <div class="flex flex-col">
                     <label class="font-semibold mb-1">Select To Pay</label>
-                    <select class="select bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3 border-1 border-gray-300" id="bank-input">
+                    <select class="select bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3 border-1 border-gray-300" id="bill-select-input">
                         <option disabled selected>Select Back</option>
                         <option>Electric Bill</option>
                         <option>Gas Bill</option>
@@ -212,7 +212,7 @@
     
                 <div class="flex flex-col">
                     <label class="font-semibold mb-2">Biller Account Number</label>
-                    <input id="account-num" type="text" placeholder="Enter 11 digit account number" 
+                    <input id="bill-account-num" type="text" placeholder="Enter 11 digit account number" 
                         class="input bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3
                         border-1 border-gray-300">
                 </div>
@@ -220,7 +220,7 @@
    
                 <div class="flex flex-col">
                     <label class="font-semibold mb-2">Amount to Pay</label>
-                    <input id="input-amount" type="text" placeholder="Add amount to pay" 
+                    <input id="bill-amount" type="text" placeholder="Add amount to pay" 
                         class="input bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3
                         border-1 border-gray-300">
                 </div>
@@ -228,14 +228,14 @@
     
                 <div class="flex flex-col">
                     <label class="font-semibold mb-2">PIN Number</label>
-                    <input id="pin" type="text" placeholder="Enter 4 digit pin number" 
+                    <input id="bpin" type="text" placeholder="Enter 4 digit pin number" 
                         class="input bg-[#f4f5f7] h-[50px] w-full max-w-md rounded-lg pl-3
                         border-1 border-gray-300">
                 </div>
 
     
                 <div class="mt-3">
-                    <button id="pay-bill-btn" class="btn bg-[#0874F2] font-semibold w-full h-9 rounded-2xl text-white text-[18px]">Add Money</button>
+                    <button id="pay-bill-btn" class="btn bg-[#0874F2] font-semibold w-full h-9 rounded-2xl text-white text-[18px]">Pay Now</button>
                 </div>
             </form>
         </div>

@@ -138,6 +138,38 @@ document.getElementById("send-btn").addEventListener("click", function(e){
 
 });
 
+//pay bill
+document.getElementById("pay-bill-btn").addEventListener("click", function(e){
+    e.preventDefault();
+    defaultAccountNumber = 12345678910;
+    defaultDigit = 1234;
+
+    console.log("sjhdbf");
+    billAccountNumber = getIntValue("bill-account-num");
+    billAmount = getNumberValue("bill-amount");
+    bAccountPin = getNumberValue("bpin");
+    availableBalance = Number(document.getElementById("total-amount").innerText);
+    availableBalance = getInnerTextValue("total-amount");
+    billmethod = document.getElementById("bill-select-input").value;
+  
+
+    if(billAccountNumber === defaultAccountNumber && bAccountPin === defaultDigit && billmethod !== "Select Back"){
+        availableBalance = availableBalance - billAmount;
+        availableBalance = availableBalance.toFixed(2);
+        setValue("total-amount",availableBalance);
+        alert("Bill Paid");
+        setInputValue("bpin", "");
+        setInputValue("bill-account-num", "");
+        setInputValue("bill-select-input", "Select Back");
+        setInputValue("bill-amount","");
+    }
+    else{
+        alert("invalid credential");
+        setInputValue("bpin","");
+        setInputValue("bill-account-num", "");
+    }
+});
+
 //toggle features
 document.getElementById("add-money").addEventListener("click", function(){
     handleToggle("add-money-parent");
