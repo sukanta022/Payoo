@@ -1,3 +1,4 @@
+const transectionData = [];
 
 function getIntValue(id){
     const value = parseInt(document.getElementById(id).value);
@@ -20,6 +21,14 @@ function setValue(id, text){
 
 function setInputValue(id, text){
     document.getElementById(id).value = text;
+}
+
+function setTransectionHistory(opration){
+    const data = {
+        name: opration,
+        date: new Date().toLocaleTimeString()
+    };
+    transectionData.push(data);
 }
 
 function handleToggle(id){
@@ -73,6 +82,8 @@ document.getElementById("add-money-btn").addEventListener("click", function(e){
         setInputValue("pin","");
         setInputValue("account-num", "");
     }
+
+    setTransectionHistory("Add Money");
 });
 
 //withdraw features
@@ -106,6 +117,7 @@ document.getElementById("withdraw-btn").addEventListener("click", function(e){
         setInputValue("agent-number", "");
         setInputValue("w-pin","");
     }
+    setTransectionHistory("Cashout");
 });
 
 //transfer money
@@ -136,6 +148,7 @@ document.getElementById("send-btn").addEventListener("click", function(e){
         setInputValue("send-pin","");
     }
 
+    setTransectionHistory("Transfer");
 });
 
 //pay bill
@@ -167,6 +180,31 @@ document.getElementById("pay-bill-btn").addEventListener("click", function(e){
         alert("invalid credential");
         setInputValue("bpin","");
         setInputValue("bill-account-num", "");
+    }
+    setTransectionHistory(billmethod);
+});
+
+document.getElementById("transection").addEventListener("click", function(){
+    const transectionContainer = document.getElementById("transection-container");
+    transectionContainer.innerText = "";
+    for(const data of transectionData){
+        const div = document.createElement("div");
+        div.innerHTML = `
+            <div class="h-[70px] p-3 rounded-2xl shadow bg-white flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                        <div class="rounded-full bg-gray-200 h-[60px] w-[60px] flex items-center justify-center">
+                            <img src="../assets/wallet1.png" alt="" class="h-10 w-10">
+                        </div>
+                        <div>
+                            <p class="font-semibold">${data.name}</p>
+                            <p class="text-[12px]">${data.date}</p>
+                        </div>
+                    </div>
+                    <p class="text-2xl text-[#080808]/70"><i class="bi bi-three-dots-vertical"></i></p>
+                </div>
+        `
+
+        transectionContainer.appendChild(div);
     }
 });
 
