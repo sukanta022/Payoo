@@ -1,32 +1,56 @@
+
+function getIntValue(id){
+    const value = parseInt(document.getElementById(id).value);
+    return value;
+}
+
+function getNumberValue(id){
+    const value = Number(document.getElementById(id).value);
+    return value;
+}
+
+function getInnerTextValue(id){
+    const value = Number(document.getElementById(id).innerText);
+    return value;
+}
+
+function setValue(id, text){
+    document.getElementById(id).innerText = text;
+}
+
+function setInputValue(id, text){
+    document.getElementById(id).value = text;
+}
+
+
 document.getElementById("add-money-btn").addEventListener("click", function(e){
     e.preventDefault();
     defaultAccountNumber = 12345678910;
     defaultDigit = 1234;
 
 
-    accountNumber = parseInt(document.getElementById("account-num").value);
-    amount = Number(document.getElementById("input-amount").value);
-    accountPin = parseInt(document.getElementById("pin").value);
+    accountNumber = getIntValue("account-num");
+    amount = getNumberValue("input-amount");
+    accountPin = getNumberValue("pin");
     availableBalance = Number(document.getElementById("total-amount").innerText);
+    availableBalance = getInnerTextValue("total-amount");
     bank = document.getElementById("bank-input").value;
-    console.log(bank);
-
-
+  
 
     if(accountNumber === defaultAccountNumber && accountPin === defaultDigit && bank !== "Select Bank"){
         availableBalance = availableBalance + amount;
         availableBalance = availableBalance.toFixed(2);
-        document.getElementById("total-amount").innerText = availableBalance;
+        setValue("total-amount",availableBalance);
         alert("Balance added");
-        document.getElementById("pin").value = "";
-        document.getElementById("account-num").value = "";
-        document.getElementById("bank-input").value = "Select Bank";
-        document.getElementById("input-amount").value = "";
+        setInputValue("pin", "");
+        setInputValue("account-num", "");
+        setInputValue("bank-input", "Select Bank");
+        setInputValue("input-amount","");
     }
     else{
         alert("invalid credential");
-        document.getElementById("pin").value = "";
-        document.getElementById("account-num").value = "";
+        setInputValue("pin","");
+        setInputValue("account-num", "");
     }
 });
 
@@ -36,31 +60,30 @@ document.getElementById("withdraw-btn").addEventListener("click", function(e){
     defaultAgenttNumber = 12345678910;
     defaultDigit = 1234;
 
-    inputNumber = parseInt(document.getElementById("agent-number").value);
-    withdrawAmount = Number(document.getElementById("withdraw-amount").value);
-    accountPin = parseInt(document.getElementById("w-pin").value);
+    inputNumber = getIntValue("agent-number");
+    withdrawAmount = getNumberValue("withdraw-amount");
+    accountPin = getIntValue("w-pin");
 
 
     if(inputNumber===defaultAgenttNumber && accountPin===defaultDigit){
         availableBalance = Number(document.getElementById("total-amount").innerText);
         if(availableBalance>=withdrawAmount){
             availableBalance = availableBalance - withdrawAmount;
-            document.getElementById("total-amount").innerText = availableBalance;
+            setValue("total-amount", availableBalance);
             alert("Withdraw Complete");
-
-            document.getElementById("agent-number").value = "";
-            document.getElementById("withdraw-amount").value = "";
-            document.getElementById("w-pin").value = "";
+            setInputValue("agent-number","");
+            setInputValue("withdraw-amount","");
+            setInputValue("w-pin", "");
         }
         else{
             alert("insufficient balance");
-            document.getElementById("withdraw-amount").value = "";
+            setInputValue("withdraw-amount","");
         }
     }
     else{
         alert("invalid credential");
-        document.getElementById("agent-number").value = "";
-        document.getElementById("w-pin").value = "";
+        setInputValue("agent-number", "");
+        setInputValue("w-pin","");
     }
 
     
