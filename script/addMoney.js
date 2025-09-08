@@ -53,6 +53,10 @@ function handleToggleButton(id){
     document.getElementById(id).classList.add("border-[#0874f2]", "bg-[#0874f20d]");
 }
 
+document.getElementById("logout").addEventListener("click", function(){
+    window.location.href = "../index.html";
+});
+
 document.getElementById("add-money-btn").addEventListener("click", function(e){
     e.preventDefault();
     defaultAccountNumber = 12345678910;
